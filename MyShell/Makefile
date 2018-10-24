@@ -1,5 +1,5 @@
-Myshell:Myshell.c
-	gcc -o Myshell Myshell.c
+Myshell:myshell.c
+	gcc -o Myshell myshell.c
 .PHONY:clean
 clean:
 	rm -f Myshell
