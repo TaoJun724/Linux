@@ -14,7 +14,7 @@ int main(){
         exit(37);
     }   
     else{//parent
-        int st;//status
+        int st;
         pid_t ret=waitpid(-1,&st,0);//0代表阻塞式
         printf("this is test for waitpid\n");
         if(WIFEXITED(st)&&ret==id)//WIFEXITED判断是否正常返回
