@@ -9,10 +9,10 @@ int main()
     perror("fork");
     return 1;
   }
-  else if(id == 0){//child
+  else if(id == 0){//孩子
      printf("I am child, pid : %d\n",getpid());
      sleep(10);
-  }else{//parent
+  }else{//父亲
      printf("I am parent, pid : %d\n",getpid());
      sleep(3);
      exit(0);
