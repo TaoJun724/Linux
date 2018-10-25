@@ -19,7 +19,7 @@ void do_parse(char *cmd)//解析命令行
   int i = 0;
   myargv[i++] = strtok(cmd," ");
   char *ret = NULL;
-  while(ret == strtok(NULL," ")){
+  while(ret = strtok(NULL," ")){
     myargv[i++] = ret;
   }
   myargv[i] = NULL;
@@ -92,9 +92,14 @@ int main()
 {
   char cmd[MAX];
   while(1){
+    
     printf("[嘻嘻桃子@localhost myshell]# ");
-    fgets(cmd,sizeof(cmd),stdin);
-    cmd[strlen(cmd)-1] = 0;
+    //fgets(cmd,sizeof(cmd),stdin);
+     fflush(stdout);
+    ssize_t s = read(0,cmd,sizeof(cmd)-1);
+    if(s > 0){
+      cmd[s-1]=0;
+    }
     do_parse(cmd);//解析命令行
     do_execute();//执行命令
   }
