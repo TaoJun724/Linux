@@ -17,6 +17,7 @@ void printsigset(sigset_t *set)
     }
   }
   puts("");
+
 }
 
 int main()
