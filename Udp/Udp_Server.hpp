@@ -16,7 +16,8 @@ class UdpServer{
      sock_.Close();
    }
 
-   bool Start(const string& ip,uint16_t  port,Handler handler)
+  // bool Start(const string& ip,uint16_t  port,Handler handler)
+  bool Start(uint16_t port,Handler handler)
    {
      //创建socket
      //绑定端口号
@@ -25,7 +26,7 @@ class UdpServer{
      //根据请求计算响应
      //根据响应给客户端
      
-     bool ret = sock_.Bind(ip,port);
+     bool ret = sock_.Bind(port);
      if(!ret)
      {
        return false;

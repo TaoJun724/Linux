@@ -20,9 +20,10 @@ void Translate(const string& req,string* res)
 
 int main(int argc,char* argv[])
 {
-  if(argc != 3)
+  if(argc != 2)
   {
-    printf("Usage./Dict_Server[ip] [port]\n");
+   // printf("Usage./Dict_Server[ip] [port]\n");
+   cout << "Usage:./dict_server[port]" << endl;
     return 1;
   }
 
@@ -32,7 +33,7 @@ int main(int argc,char* argv[])
 
   //启动服务器
   UdpServer server;
-  string ip(argv[1]);
-  server.Start(ip,atoi(argv[2]),Translate);
+  
+  server.Start(atoi(argv[1]),Translate);
   return 0;
 }

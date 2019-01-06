@@ -41,12 +41,14 @@ class UdpSocket
     }
 
     //绑定端口号
-    bool Bind(const string& ip,uint16_t port)
+   // bool Bind(const string& ip,uint16_t port)
+   bool Bind(uint16_t port)
     {
       sockaddr_in addr;//IPv4的地址类型
       addr.sin_family = AF_INET;
       addr.sin_port = htons(port);//主机字节序转网络字节序
-      addr.sin_addr.s_addr = inet_addr(ip.c_str());//inet_addr可以将字符串转为IP地址
+     // addr.sin_addr.s_addr = inet_addr(ip.c_str());//inet_addr可以将字符串转为IP地址
+     addr.sin_addr.s_addr = INADDR_ANY;//INADDR_ANY代表0.0.0.0
       int ret = bind(_fd,(sockaddr*)&addr,sizeof(addr));
       if(ret < 0 )
       {

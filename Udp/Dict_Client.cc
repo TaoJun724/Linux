@@ -16,7 +16,7 @@ int main(int argc,char* argv[])
     string word;
     cout<<"请输入你要查询的单词:";
     cin>>word;
-    if(!cin)
+    if(word=="quit")
     {
       cout<<"bye"<<endl;
       break;
@@ -24,7 +24,7 @@ int main(int argc,char* argv[])
     client.SendTo(word);
     string result;
     client.RecvFrom(&result);
-    cout<<word<<"意思是"<<result<<endl;
+    cout<<word<<"意思"<<result<<endl;
   }
   return 0 ;
 }
