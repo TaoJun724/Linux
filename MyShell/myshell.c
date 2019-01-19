@@ -48,30 +48,41 @@ void do_execute()
       }
     }
     //处理输出重定向
-      if(flag == 1)
-      {
-        myargv[i] = NULL;
-        int oldfd = open(myargv[i+ 1],O_WRONLY|O_CREAT,0777);
-        if(oldfd < 0){
-          perror("open");
-          exit(1);
-        }
-        close(1);
-        int newfd = dup(oldfd);   
+    if(flag == 1)
+     {
+ //      myargv[i] = NULL;
+ //      int oldfd = open(myargv[i+ 1],O_WRONLY|O_CREAT,0777);
+ //      if(oldfd < 0){
+ //        perror("open");
+ //        exit(1);
+ //      }
+ //      close(1);
+ //      int newfd = dup(oldfd);  
+        
+       char* file = myargv[i+1];
+       myargv[i] = NULL;
+       close(1);
+       open(file,O_WRONLY|O_CREAT,0777);   
       }
-  
+
 
     //输入重定向
       if(flag == 2)
       {
-        myargv[i] = NULL;
-        int oldfd = open(myargv[i+ 1],O_RDONLY,0644);
-        if(oldfd < 0){
-          perror("open");
-          exit(1);
-        }
-        close(0);
-        int newfd = dup(oldfd);        
+//        myargv[i] = NULL;
+//        int oldfd = open(myargv[i+ 1],O_RDONLY,0644);
+//        if(oldfd < 0){
+//          perror("open");
+//          exit(1);
+//        }
+//        close(0);
+//        int newfd = dup(oldfd);        
+//      
+            
+       char* file = myargv[i+1];
+       myargv[i] = NULL;
+       close(0);
+       open(file,O_WRONLY|O_CREAT,0777);   
       }
     
 
