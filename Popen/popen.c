@@ -7,7 +7,7 @@ int main()
 {
   FILE* file =NULL;
   char buf[1024] = {0};
-  file=popen("cat hello.c","r");
+  file=popen("ls -l","r");
   if(file==NULL){
     perror("popen()");
       exit(1);}
