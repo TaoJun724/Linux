@@ -5,7 +5,7 @@
 int main()
 {
   int status = 0;
-  status = system("ps -l");
+  status = system("ipcs -q");
   if(status == -1){
          perror("system()");
          exit(1);
