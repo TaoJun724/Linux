@@ -1,6 +1,5 @@
 #include "comm.h"
 
-
 static int commSemSet(int nums,int flags)
 {
    key_t _key = ftok(PATHNAME,PROJ_ID);
